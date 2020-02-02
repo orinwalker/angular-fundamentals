@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 
 export class EventsListComponent {
-    event1 = {
+    theEvent = {
         id: 1,
         name: 'Angular Connect',
         date: '9/26/2036',
@@ -19,5 +19,9 @@ export class EventsListComponent {
             country: 'England'
         }
     };
+
+    handleEventClicked(data) {
+        console.log('received eventClick and the data: '+data);
+    }
 }
 
