@@ -20,8 +20,8 @@ export class EventsListComponent {
         }
     };
 
-    handleEventClicked(data) {
-        console.log('received eventClick and the data: '+data);
-    }
+    // handleEventClicked(data) {
+    //     console.log('received eventClick and the data: '+data);
+    // }
 }
 

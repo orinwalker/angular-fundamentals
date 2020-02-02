@@ -2,7 +2,13 @@
     <h1>Upcoming Angular Events</h1>
     <hr>
     <app-event-thumbnail 
+        [event]="theEvent">
+    </app-event-thumbnail>
+
+    <!-- 
+        <app-event-thumbnail 
         [event]="theEvent"
         (eventClick)="handleEventClicked($event)">
-    </app-event-thumbnail>
+    </app-event-thumbnail> 
+    -->
 </div>
