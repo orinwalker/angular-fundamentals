@@ -9,10 +9,16 @@ export class EventThumbnailComponent implements OnInit {
   @Input() event: any;
   // @Output() eventClick = new EventEmitter();
 
+  someProperty: any = 'some value';
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  // logFoo() {
+  //   console.log('foo');
+  // }
 
   // handleClickMe() {
   //   console.log('handleClickMe called!');
