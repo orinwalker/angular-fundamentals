@@ -1,8 +1,6 @@
 import { Component, Inject, forwardRef, OnInit } from '@angular/core';
 import { EventService } from './shared/event.service';
-import { toBase64String } from '@angular/compiler/src/output/source_map';
-
-declare let toastr
+import { ToastrService } from '../common/toastr.service';
 
 @Component({
     selector: 'app-events-list',
@@ -11,7 +9,10 @@ declare let toastr
 
 export class EventsListComponent implements OnInit {
     events: any[];
-    constructor(@Inject(forwardRef(() => EventService)) public eventService: EventService ) {
+    
+            constructor(
+            @Inject(forwardRef(() => EventService)) public eventService: EventService,
+            private toastr: ToastrService ) {
     }
 
     ngOnInit(){
