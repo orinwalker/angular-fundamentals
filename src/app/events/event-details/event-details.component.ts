@@ -14,8 +14,8 @@ export class EventDetailsComponent implements OnInit {
 
     event: any;
 
-    constructor( @Inject(forwardRef(() => EventService)) public eventService: EventService,
-                 @Inject(forwardRef(() => ActivatedRoute)) public route: ActivatedRoute) {
+    constructor( @Inject(forwardRef(() => EventService)) private eventService: EventService,
+                 @Inject(forwardRef(() => ActivatedRoute)) private route: ActivatedRoute) {
     }
 
     ngOnInit() {

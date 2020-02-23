@@ -10,8 +10,8 @@ import { ToastrService } from '../common/toastr.service';
 export class EventsListComponent implements OnInit {
     events: any[];
             constructor(
-            @Inject(forwardRef(() => EventService)) public eventService: EventService,
-            @Inject(forwardRef(() => ToastrService)) public toastr: ToastrService) {
+            @Inject(forwardRef(() => EventService)) private eventService: EventService,
+            @Inject(forwardRef(() => ToastrService)) private toastr: ToastrService) {
     }
 
     ngOnInit(){
