@@ -9,7 +9,8 @@ import { ToastrService } from '../common/toastr.service';
 
 export class EventsListComponent implements OnInit {
     events: any[];
-            constructor(
+
+    constructor(
             @Inject(forwardRef(() => EventService)) private eventService: EventService,
             @Inject(forwardRef(() => ToastrService)) private toastr: ToastrService) {
     }
@@ -19,7 +20,7 @@ export class EventsListComponent implements OnInit {
     }
 
     handleThumbnailClick(eventName) {
-        // toastr.success(eventName);
+         this.toastr.success(eventName);
     }
 }
 
