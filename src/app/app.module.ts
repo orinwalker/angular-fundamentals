@@ -1,3 +1,4 @@
+import { ProfileComponent } from './user/profile.component';
 import { EventListResolver } from './events/shared/events-list-resolver.service';
 import { Error404Component } from './errors/404.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,9 +27,8 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
     EventDetailsComponent,
     NavbarComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
   ],
-  // ORIN: The trouble is on the line below
   providers: [
     EventService,
     ToastrService,
