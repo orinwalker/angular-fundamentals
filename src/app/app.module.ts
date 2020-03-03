@@ -1,3 +1,4 @@
+import { EventListResolver } from './events/shared/events-list-resolver.service';
 import { Error404Component } from './errors/404.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -31,6 +32,7 @@ import { EventRouteActivator } from './events/event-details/event-route-activato
   providers: [
     EventService,
     ToastrService,
+    EventListResolver,
     EventRouteActivator,
     {
       provide: 'canDeactivateCreateEvent',
