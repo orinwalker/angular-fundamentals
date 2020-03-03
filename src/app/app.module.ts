@@ -1,3 +1,4 @@
+import { AuthService } from './user/auth.service';
 
 // import { EventListResolver } from './events/events-list-resolver.service';
 // import { EventsListComponent } from './events/events-list.component';
@@ -43,6 +44,7 @@ import {
   ],
   providers: [
     EventService,
+    AuthService,
     ToastrService,
     EventListResolver,
     EventRouteActivator,

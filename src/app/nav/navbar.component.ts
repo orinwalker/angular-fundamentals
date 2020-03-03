@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../user/auth.service';
+import { Component, OnInit, Inject, forwardRef } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor( @Inject(forwardRef(() => AuthService)) public auth: AuthService) {
+  }
 
   ngOnInit() {
   }
