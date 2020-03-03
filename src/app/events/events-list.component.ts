@@ -1,3 +1,4 @@
+import { IEvent } from './shared/event.model';
 import { ActivatedRoute } from '@angular/router';
 import { Component, Inject, forwardRef, OnInit } from '@angular/core';
 import { EventService } from './shared/event.service';
@@ -9,7 +10,7 @@ import { ToastrService } from '../common/toastr.service';
 })
 
 export class EventsListComponent implements OnInit {
-    events: any;
+    events: IEvent[];
 
     constructor(
             @Inject(forwardRef(() => EventService)) private eventService: EventService,
@@ -17,7 +18,7 @@ export class EventsListComponent implements OnInit {
             @Inject(forwardRef(() => ToastrService)) private toastr: ToastrService) {
     }
 
-    ngOnInit(){
+    ngOnInit() {
         // get the data via an observable
         // this.eventService.getEvents().subscribe(events => { this.events = events; });
 
