@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component
 ({
@@ -6,5 +6,9 @@ import { Component } from "@angular/core";
 })
 
 export class LoginComponent {
-
+  userName: string;
+  password: string;
+  login(formValues) {
+    console.log(formValues);
+  }
 }
