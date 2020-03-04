@@ -4,12 +4,16 @@ import { Component, Inject, forwardRef } from '@angular/core';
 
 @Component
 ({
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styles: [`
+    em { float:right; color: #E05C65; padding-left: 10px }
+    `]
 })
 
 export class LoginComponent {
   userName: string;
   password: string;
+  mouseoverLogin: boolean;
 
   constructor( @Inject(forwardRef(() => AuthService)) private authService: AuthService,
                @Inject(forwardRef(() => Router)) private router: Router) {
