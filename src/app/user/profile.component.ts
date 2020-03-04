@@ -1,18 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject, forwardRef } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
 @Component
 ({
-  template: `
-    <h1>Edit Your Profile</h1>
-    <hr>
-    <div class="col-md-6">
-    <h3>[Edit profile form will go here]</h3>
-    <br>
-    <br>
-    <button type="button" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-default">Cancel</button>
-    `,
+  templateUrl: './profile.component.html'
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
+
+  profileForm: FormGroup;
+
+  constructor
+    (
+      @Inject(forwardRef(() => AuthService)) private authService: AuthService,
+      @Inject(forwardRef(() => Router)) private router: Router
+    ) {}
+
+  ngOnInit() {
+    const firstName = new FormControl(this.authService.currentUser.firstName);
+    const lastName = new FormControl(this.authService.currentUser.lastName);
+    this.profileForm = new FormGroup({
+      firstName: firstName,
+      lastName: lastName
+    })
+  }
+
+  cancel() {
+    this.router.navigate(['events']);
+  }
+
+  saveProfile(formValues) {
+    console.log("saveProfile: "+formValues.firstName + " "+formValues.lastName);
+    this.authService.updateCurrentUser(formValues.firstName, formValues.lastName)
+  }
 
 }

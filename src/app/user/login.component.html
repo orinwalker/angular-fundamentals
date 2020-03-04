@@ -12,7 +12,6 @@
       <em *ngIf="loginForm.controls?.password?.invalid && (loginForm.controls?.password?.touched || mouseoverLogin)">Required</em>
       <input (ngModel)="password" type="password" name="password" required id="password" class="form-control">
     </div>
-    <div>mouseoverLogin: {{mouseoverLogin}}</div>
     <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
       <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
     </span>
