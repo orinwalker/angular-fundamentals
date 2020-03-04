@@ -28,6 +28,7 @@ import {
   EventListResolver
 } from './events/index';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './events/event-details/create-session.component';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NavbarComponent,
     CreateEventComponent,
     Error404Component,
+    CreateSessionComponent,
   ],
   providers: [
     EventService,
