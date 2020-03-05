@@ -1,14 +1,5 @@
+
 import { AuthService } from './user/auth.service';
-
-// import { EventListResolver } from './events/events-list-resolver.service';
-// import { EventsListComponent } from './events/events-list.component';
-// import { EventThumbnailComponent } from './events/event-thumbnail.component';
-// import { EventService } from './events/shared/event.service';
-// import { EventDetailsComponent } from './events/event-details/event-details.component';
-// import { CreateEventComponent } from './events/create-event.component';
-// import { EventRouteActivator } from './events/event-details/event-route-activator.service';
-
-import { ProfileComponent } from './user/profile.component';
 import { Error404Component } from './errors/404.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,12 +16,18 @@ import {
   EventDetailsComponent,
   CreateEventComponent,
   EventRouteActivator,
-  EventListResolver
+  EventListResolver,
 } from './events/index';
+
+import {
+  DurationPipe
+} from './events/shared/index';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
-import { SessionListComponent } from './events/event-details/session-list.component';
+import { SessionListComponent  } from './events/event-details/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
+
 
 @NgModule({
   imports: [
@@ -50,6 +47,7 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
+    DurationPipe,
   ],
   providers: [
     EventService,
