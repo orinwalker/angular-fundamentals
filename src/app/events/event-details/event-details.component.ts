@@ -17,6 +17,7 @@ export class EventDetailsComponent implements OnInit {
     event: IEvent;
     addMode: boolean = false;
     filterBy: string = 'all';
+    sortBy: string = 'votes';
 
     constructor( @Inject(forwardRef(() => EventService)) private eventService: EventService,
                  @Inject(forwardRef(() => ActivatedRoute)) private route: ActivatedRoute) {
@@ -44,4 +45,6 @@ export class EventDetailsComponent implements OnInit {
     cancelAddSession() {
       this.addMode = false;
     }
+
+    
 }
