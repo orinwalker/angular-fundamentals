@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { EventsAppComponent } from './events-app.component';
 import { NavbarComponent } from './nav/navbar.component';
-import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
+import { JQ_TOKEN, TOASTR_TOKEN, Toastr, CollapsibleWellComponent } from './common/index';
 
 // This is a barrel for 'events'
 import {
@@ -26,9 +26,11 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { SessionListComponent  } from './events/event-details/session-list.component';
-import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { SimpleModalComponent } from './common/simple-modal.component';
 
-declare let toastr: Toastr;
+// declare let toastr: Toastr;
+const toastr: Toastr = window[`toastr`];
+const jQuery = window[`$`];
 
 @NgModule({
   imports: [
@@ -49,11 +51,13 @@ declare let toastr: Toastr;
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
+    SimpleModalComponent,
   ],
   providers: [
     EventService,
     AuthService,
     { provide: TOASTR_TOKEN, useValue: toastr},
+    { provide: JQ_TOKEN, useValue: jQuery},
     EventListResolver,
     EventRouteActivator,
     {
