@@ -1,13 +1,13 @@
 
 <div class="container">
     <img class="event-image" [src]="event?.imageUrl" [alt]="event?.name">
-  
+
     <div class="row">
       <div class="col-md-11">
         <h2>{{event?.name}} </h2>
       </div>
     </div>
-  
+
     <div class="row">
       <div class="col-md-6">
         <div><strong>Date:</strong> {{event?.date}}</div>
@@ -22,5 +22,7 @@
         </address>
       </div>
     </div>
+
+  <app-session-list [sessions]="event?.sessions"></app-session-list>
+
   </div>
-  
