@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { EventsAppComponent } from './events-app.component';
 import { NavbarComponent } from './nav/navbar.component';
-import { ToastrService } from './common/toastr.service';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.service';
 
 // This is a barrel for 'events'
 import {
@@ -28,6 +28,7 @@ import { CreateSessionComponent } from './events/event-details/create-session.co
 import { SessionListComponent  } from './events/event-details/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
 
+declare let toastr: Toastr;
 
 @NgModule({
   imports: [
@@ -52,7 +53,7 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
   providers: [
     EventService,
     AuthService,
-    ToastrService,
+    { provide: TOASTR_TOKEN, useValue: toastr},
     EventListResolver,
     EventRouteActivator,
     {
