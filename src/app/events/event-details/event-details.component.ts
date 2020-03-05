@@ -16,6 +16,7 @@ export class EventDetailsComponent implements OnInit {
 
     event: IEvent;
     addMode: boolean = false;
+    filterBy: string = 'all';
 
     constructor( @Inject(forwardRef(() => EventService)) private eventService: EventService,
                  @Inject(forwardRef(() => ActivatedRoute)) private route: ActivatedRoute) {
