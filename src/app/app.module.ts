@@ -27,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session.component';
 import { SessionListComponent  } from './events/event-details/session-list.component';
 import { SimpleModalComponent } from './common/simple-modal.component';
+import { ModalTriggerDirective } from './common/modalTrigger.directive';
 
 // declare let toastr: Toastr;
 const toastr: Toastr = window[`toastr`];
@@ -52,6 +53,7 @@ const jQuery = window[`$`];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
+    ModalTriggerDirective
   ],
   providers: [
     EventService,
