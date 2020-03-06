@@ -17,7 +17,7 @@ export class SessionListComponent implements OnInit, OnChanges {
   visibleSessions: ISession[] = [];
 
   constructor(
-    @Inject(forwardRef(() => AuthService)) private auth: AuthService,
+    @Inject(forwardRef(() => AuthService)) public auth: AuthService,
     @Inject(forwardRef(() => VoterService)) private voterService: VoterService) {
     }
 
