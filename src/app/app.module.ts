@@ -6,9 +6,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { EventsAppComponent } from './events-app.component';
 import { NavbarComponent } from './nav/navbar.component';
-import { JQ_TOKEN, TOASTR_TOKEN, Toastr, CollapsibleWellComponent } from './common/index';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './events/event-details/create-session.component';
+import { SessionListComponent  } from './events/event-details/session-list.component';
+import { SimpleModalComponent } from './common/simple-modal.component';
+import { ModalTriggerDirective } from './common/modalTrigger.directive';
+import { UpvoteComponent } from './events/event-details/upvote.component';
 
-// This is a barrel for 'events'
+// 'events' barrel
 import {
   EventsListComponent,
   EventThumbnailComponent,
@@ -17,19 +22,21 @@ import {
   CreateEventComponent,
   EventRouteActivator,
   EventListResolver,
+  VoterService,
 } from './events/index';
 
+// 'shared' barrel
 import {
   DurationPipe
 } from './events/shared/index';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CreateSessionComponent } from './events/event-details/create-session.component';
-import { SessionListComponent  } from './events/event-details/session-list.component';
-import { SimpleModalComponent } from './common/simple-modal.component';
-import { ModalTriggerDirective } from './common/modalTrigger.directive';
+// 'common' barrel
+import { JQ_TOKEN,
+  TOASTR_TOKEN,
+  Toastr,
+  CollapsibleWellComponent
+} from './common/index';
 
-// declare let toastr: Toastr;
 const toastr: Toastr = window[`toastr`];
 const jQuery = window[`$`];
 
@@ -53,14 +60,17 @@ const jQuery = window[`$`];
     CollapsibleWellComponent,
     DurationPipe,
     SimpleModalComponent,
-    ModalTriggerDirective
+    ModalTriggerDirective,
+    UpvoteComponent,
   ],
   providers: [
     EventService,
+    VoterService,
     AuthService,
     { provide: TOASTR_TOKEN, useValue: toastr},
     { provide: JQ_TOKEN, useValue: jQuery},
     EventListResolver,
+    UpvoteComponent,
     EventRouteActivator,
     {
       provide: 'canDeactivateCreateEvent',
