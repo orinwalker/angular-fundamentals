@@ -36,6 +36,7 @@ import { JQ_TOKEN,
   Toastr,
   CollapsibleWellComponent
 } from './common/index';
+import { LocationValidatorDirective } from './events/shared/location-validator.directive';
 
 const toastr: Toastr = window[`toastr`];
 const jQuery = window[`$`];
@@ -62,10 +63,12 @@ const jQuery = window[`$`];
     SimpleModalComponent,
     ModalTriggerDirective,
     UpvoteComponent,
+    LocationValidatorDirective,
   ],
   providers: [
     EventService,
     VoterService,
+    LocationValidatorDirective,
     AuthService,
     { provide: TOASTR_TOKEN, useValue: toastr},
     { provide: JQ_TOKEN, useValue: jQuery},

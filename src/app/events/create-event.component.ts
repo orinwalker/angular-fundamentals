@@ -32,17 +32,17 @@ export class CreateEventComponent implements OnInit {
       // onlineUrl: 'http://ngSpectacular.com',
       // imageUrl: 'http://ngSpectacular.com/logo.png'
 
-      name: '',
-      date: '',
-      time: '',
-      price: 0.00,
+      name: 'The Event',
+      date: '3/3/2027',
+      time: '9AM',
+      price: 500.00,
       location: {
         address: '',
         city: '',
         country: ''
       },
       onlineUrl: '',
-      imageUrl: ''
+      imageUrl: 'http://i.imgflip.com/yhzjy.jpg'
 
     }
   }
