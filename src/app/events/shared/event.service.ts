@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter, Inject, forwardRef } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { IEvent, ISession } from './event.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
@@ -17,40 +17,21 @@ export class EventService {
 
   getEvent(id: number): Observable<IEvent> {
     const retVal = this.http.get<IEvent>('/api/events/' + id)
-    .pipe(catchError(this.handleError<IEvent>('getEvents')));
+      .pipe(catchError(this.handleError<IEvent>('getEvent')));
     return retVal;
   }
 
   saveEvent(event) {
-    event.id = 999;
-    event.session = [];
-    EVENTS.push(event);
+    const options = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
+    const retVal = this.http.post<IEvent>('/api/events', event, options)
+      .pipe(catchError(this.handleError<IEvent>('saveEvent')));
+    return retVal;
   }
 
-  updateEvent(event) {
-    const index = EVENTS.findIndex(x => x.id = event.id);
-    EVENTS[index] = event;
-  }
-
-  searchSessions(searchTerm: string) {
-    const term = searchTerm.toLocaleLowerCase();
-    let results: ISession[] = [];
-
-    EVENTS.forEach(event => {
-      let matchingSessions = event.sessions.filter(session => session.name.toLocaleLowerCase().indexOf(term) > -1);
-      matchingSessions = matchingSessions.map((s: any) => {
-        s.eventId = event.id;
-        return s;
-      });
-      results = results.concat(matchingSessions);
-    });
-
-    const emitter = new EventEmitter(true);
-    setTimeout(() => {
-      emitter.emit(results);
-    }, 100);
-
-    return emitter;
+  searchSessions(searchTerm: string): Observable<ISession[]> {
+    const retVal = this.http.get<ISession[]>('/api/sessions/search?search=' + searchTerm)
+      .pipe(catchError(this.handleError<ISession[]>('searchSessions')));
+    return retVal;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

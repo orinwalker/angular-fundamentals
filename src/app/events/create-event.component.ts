@@ -44,15 +44,17 @@ export class CreateEventComponent implements OnInit {
       onlineUrl: '',
       imageUrl: 'http://i.imgflip.com/yhzjy.jpg'
 
-    }
+    };
   }
 
   saveEvent(formValues) {
     console.log(formValues);
-    this.eventService.saveEvent(formValues);
-    this.isDirty = false; // bypass the route guard
-    this.router.navigate(['/events']);
+    this.eventService.saveEvent(formValues).subscribe(() => {
+      this.isDirty = false; // bypass the route guard
+      this.router.navigate(['/events']);
+    });
   }
+
   cancel() {
     this.router.navigate(['/events']);
   }
