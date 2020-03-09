@@ -50,7 +50,7 @@
 
 <!-- One event can have multiple sessions -->
 <!-- Sessions is an input to the session list component -->
-  <app-session-list [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event?.sessions"></app-session-list>
+  <app-session-list [eventId]="event?.id" [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event?.sessions"></app-session-list>
 
   <!-- $event is our new session object -->
   <app-create-session *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()">
