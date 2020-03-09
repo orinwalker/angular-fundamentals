@@ -14,6 +14,7 @@ export class LoginComponent {
   userName: string;
   password: string;
   mouseoverLogin: boolean;
+  loginInvalid: boolean = false;
 
   constructor( @Inject(forwardRef(() => AuthService)) private authService: AuthService,
                @Inject(forwardRef(() => Router)) private router: Router) {
@@ -22,8 +23,17 @@ export class LoginComponent {
 
   login(formValues) {
     console.log(formValues);
-    this.authService.loginUser(formValues.userName, formValues.password);
-    this.router.navigate(['events']);
+    console.log('THE USERNAME IS: ' + formValues.userName);
+
+    this.authService.loginUser(formValues.userName, formValues.password)
+      .subscribe(resp => {
+        if (!resp) {
+          this.loginInvalid = true;
+          console.log('Invalid login received');
+        } else {
+          this.router.navigate(['events']);
+        }
+      });
   }
 
   cancel() {

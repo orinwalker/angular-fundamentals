@@ -68,4 +68,10 @@ export class ProfileComponent implements OnInit {
       this.toastr.success('Profile Saved');
     }
   }
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/user/login']);
+    });
+  }
 }
