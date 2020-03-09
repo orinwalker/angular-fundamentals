@@ -28,4 +28,5 @@ export class EventThumbnailComponent implements OnInit {
     }
     return [];
   }
+
 }

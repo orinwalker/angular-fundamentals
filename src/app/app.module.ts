@@ -12,6 +12,7 @@ import { SessionListComponent  } from './events/event-details/session-list.compo
 import { SimpleModalComponent } from './common/simple-modal.component';
 import { ModalTriggerDirective } from './common/modalTrigger.directive';
 import { UpvoteComponent } from './events/event-details/upvote.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // 'events' barrel
 import {
@@ -20,9 +21,9 @@ import {
   EventService,
   EventDetailsComponent,
   CreateEventComponent,
-  EventRouteActivator,
   EventListResolver,
   VoterService,
+  EventResolver,
 } from './events/index';
 
 // 'shared' barrel
@@ -46,7 +47,8 @@ const jQuery = window[`$`];
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [
     EventsAppComponent,
@@ -72,9 +74,10 @@ const jQuery = window[`$`];
     AuthService,
     { provide: TOASTR_TOKEN, useValue: toastr},
     { provide: JQ_TOKEN, useValue: jQuery},
+    EventResolver,
     EventListResolver,
+    EventThumbnailComponent,
     UpvoteComponent,
-    EventRouteActivator,
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
