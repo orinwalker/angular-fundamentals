@@ -38,6 +38,7 @@ import { JQ_TOKEN,
   CollapsibleWellComponent
 } from './common/index';
 import { LocationValidatorDirective } from './events/shared/location-validator.directive';
+import { TestComponent } from './test/test.component';
 
 const toastr: Toastr = window[`toastr`];
 const jQuery = window[`$`];
@@ -66,6 +67,7 @@ const jQuery = window[`$`];
     ModalTriggerDirective,
     UpvoteComponent,
     LocationValidatorDirective,
+    TestComponent,
   ],
   providers: [
     EventService,
