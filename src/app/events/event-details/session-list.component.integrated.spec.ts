@@ -16,10 +16,10 @@ describe('SessionListComponent', () => {
   let mockAuthService;
   let mockVoterService;
 
-  beforeEach( async(() => {
+  beforeEach(async(() => {
     mockAuthService = {
       isAuthenticated: () => true,
-      currentUser: { userName: 'Joe'}
+      currentUser: { userName: 'Joe' }
     };
     mockVoterService = {
       userHasVoted: () => true
@@ -41,7 +41,7 @@ describe('SessionListComponent', () => {
     });
   }));
 
-  beforeEach( () => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(SessionListComponent);
     component = fixture.componentInstance;
     debugEl = fixture.debugElement;
@@ -52,8 +52,8 @@ describe('SessionListComponent', () => {
 
     it('should have correct session title', () => {
 
-      component.sessions =  [
-        { id: 3, name: 'Session 1', presenter: 'Joe', duration: 1, level: 'beginner', abstract: 'abstract', voters: ['john', 'bob']}
+      component.sessions = [
+        { id: 3, name: 'Session 1', presenter: 'Joe', duration: 1, level: 'beginner', abstract: 'abstract', voters: ['john', 'bob'] }
       ] as ISession[];
       component.filterBy = 'all';
       component.sortBy = 'name';
@@ -62,7 +62,8 @@ describe('SessionListComponent', () => {
       component.ngOnChanges();
       fixture.detectChanges();
 
-      expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
+      // expect(element.querySelector('[well-title]').textContent).toContain('Session 1');
+      expect(debugEl.query(By.css('[well-title]')).nativeElement.textContent).toContain('Session 1');
     });
   });
 });
