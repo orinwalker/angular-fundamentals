@@ -2,16 +2,12 @@ import { TestBed, async } from '@angular/core/testing';
 import { VoterService } from './voter.service';
 import { ISession } from '../shared';
 import { of } from 'rxjs';
-// import { Pipe } from '@angular/core';
-// import { EventsAppComponent } from './app/events-app.component';
 
 // tslint:disable: no-inferrable-types
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        // EventsAppComponent,
-        // Pipe
       ],
     }).compileComponents();
   }));
